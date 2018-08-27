@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NFive.SDK.Client", "NFive.SDK.Client.csproj", "{22732BBC-D264-4BC1-81D7-D44F5E6AFB3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22732BBC-D264-4BC1-81D7-D44F5E6AFB3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22732BBC-D264-4BC1-81D7-D44F5E6AFB3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22732BBC-D264-4BC1-81D7-D44F5E6AFB3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22732BBC-D264-4BC1-81D7-D44F5E6AFB3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99D5BDEE-C1D9-4360-9017-78E83B7BDC49}
+	EndGlobalSection
+EndGlobal
