@@ -13,7 +13,7 @@
 		<tags>nfive fivem</tags>
 		<dependencies>
 			<dependency id="CitizenFX.Client" version="1.0.0" />
-			<dependency id="NFive.SDK.Core" version="1.0.0" />
+			<dependency id="NFive.SDK.Core" version="0.1.0.0" />
 		</dependencies>
 	</metadata>
 	<files>
