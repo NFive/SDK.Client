@@ -1,7 +1,5 @@
 .vs/
-packages/
-obj/
 bin/
-Interface/node_modules/
-Interface/dist/*
-!Interface/dist/index.html
+obj/
+packages/
+*.user

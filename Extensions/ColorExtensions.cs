@@ -1,11 +1,10 @@
 ﻿using System.Drawing;
-using System.Runtime.Remoting.Messaging;
 
 namespace NFive.SDK.Client.Extensions
 {
 	public static class ColorExtensions
 	{
-		public static Core.Models.Color ToColor(this System.Drawing.Color color) => new Core.Models.Color
+		public static Core.Models.Color ToColor(this Color color) => new Core.Models.Color
 		{
 			R = color.R,
 			G = color.G,
