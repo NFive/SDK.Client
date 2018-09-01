@@ -4,4 +4,4 @@
 [![NuGet Version](https://img.shields.io/nuget/v/NFive/SDK.Client.svg)](https://www.nuget.org/packages/NFive.SDK.Client)
 [![Release Version](https://img.shields.io/github/release/NFive/SDK.Client/all.svg)](https://github.com/NFive/SDK.Client/releases)
 
-[NFive](https://nfive.github.io/) client SDK for developing plugins.
+[NFive](https://nfive.io/) client SDK for developing plugins.
