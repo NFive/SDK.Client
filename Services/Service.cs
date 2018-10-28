@@ -17,16 +17,16 @@ namespace NFive.SDK.Client.Services
 		protected readonly ITickManager Ticks;
 		protected readonly IEventManager Events;
 		protected readonly IRpcHandler Rpc;
-		protected readonly INuiManager Nui;
+		protected readonly OverlayManager OverlayManager;
 		protected readonly User User;
 
-		protected Service(ILogger logger, ITickManager ticks, IEventManager events, IRpcHandler rpc, INuiManager nui, User user)
+		protected Service(ILogger logger, ITickManager ticks, IEventManager events, IRpcHandler rpc, OverlayManager overlayManager, User user)
 		{
 			this.Logger = logger;
 			this.Ticks = ticks;
 			this.Events = events;
 			this.Rpc = rpc;
-			this.Nui = nui;
+			this.OverlayManager = overlayManager;
 			this.User = user;
 		}
 
@@ -34,9 +34,9 @@ namespace NFive.SDK.Client.Services
 
 		public virtual Task Started() => Task.FromResult(0);
 
-		protected async Task Delay(int msec)
+		protected async Task Delay(int ms)
 		{
-			await BaseScript.Delay(msec);
+			await BaseScript.Delay(ms);
 		}
 
 		protected async Task Delay(TimeSpan delay)

@@ -69,7 +69,10 @@
     <Compile Include="Input\Input.cs" />
     <Compile Include="Input\InputModifier.cs" />
     <Compile Include="Interface\INuiManager.cs" />
+    <Compile Include="Interface\IOverlay.cs" />
     <Compile Include="Interface\NuiManager.cs" />
+    <Compile Include="Interface\Overlay.cs" />
+    <Compile Include="Interface\OverlayManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rpc\IRpc.cs" />
     <Compile Include="Rpc\IRpcEvent.cs" />

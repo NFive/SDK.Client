@@ -3,7 +3,6 @@ using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using NFive.SDK.Core.Rpc;
 
-
 namespace NFive.SDK.Client.Interface
 {
 	public class NuiManager : INuiManager
