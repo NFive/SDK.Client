@@ -1,5 +1,5 @@
-﻿using System;
-using CitizenFX.Core;
+﻿using CitizenFX.Core;
+using System;
 
 namespace NFive.SDK.Client.Interface
 {
@@ -17,12 +17,17 @@ namespace NFive.SDK.Client.Interface
 
 		public void Send(string @event, object data = null)
 		{
-			this.Nui.Send($"{this.Plugin}-{@event}", data);
+			this.Nui.Send(new
+			{
+				plugin = this.Plugin,
+				@event,
+				data
+			});
 		}
 
 		public void Attach(string @event, Action<dynamic, CallbackDelegate> callback)
 		{
-			this.Nui.Attach($"{this.Plugin}-{@event}", callback);
+			this.Nui.Attach($"{this.Plugin}/{@event}", callback);
 		}
 	}
 }

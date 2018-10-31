@@ -11,11 +11,7 @@ namespace NFive.SDK.Client.Interface
 
 		public NuiManager(EventHandlerDictionary events) { this.events = events; }
 
-		public void Send(string type, object data = null) => API.SendNuiMessage(new Serializer().Serialize(new
-		{
-			type,
-			data
-		}));
+		public void Send(object data) => API.SendNuiMessage(new Serializer().Serialize(data));
 
 		public void Attach(string type, Action<dynamic, CallbackDelegate> callback)
 		{

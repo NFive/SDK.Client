@@ -1,19 +1,23 @@
-﻿using System;
-using CitizenFX.Core;
+﻿using CitizenFX.Core;
+using JetBrains.Annotations;
+using System;
 
 namespace NFive.SDK.Client.Interface
 {
+	[PublicAPI]
 	public abstract class Overlay : IOverlay
 	{
 		public OverlayManager Manager { get; }
+
+		public string Name => this.GetType().Name;
 
 		protected Overlay(string fileName, OverlayManager manager)
 		{
 			this.Manager = manager;
 
-			this.Manager.Nui.Send("load-overlay", new
+			this.Manager.Send("load-overlay", new
 			{
-				plugin = this.Manager.Plugin,
+				overlay = this.Name,
 				file = fileName
 			});
 		}
