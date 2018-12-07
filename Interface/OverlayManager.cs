@@ -29,5 +29,10 @@ namespace NFive.SDK.Client.Interface
 		{
 			this.Nui.Attach($"{this.Plugin}/{@event}", callback);
 		}
+
+		public void Attach<T>(string @event, Action<T, CallbackDelegate> callback)
+		{
+			this.Nui.Attach($"{this.Plugin}/{@event}", callback);
+		}
 	}
 }

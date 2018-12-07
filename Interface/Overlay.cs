@@ -42,6 +42,11 @@ namespace NFive.SDK.Client.Interface
 			this.Manager.Attach(@event, callback);
 		}
 
+		protected void Attach<T>(string @event, Action<T, CallbackDelegate> callback)
+		{
+			this.Manager.Attach(@event, callback);
+		}
+
 		protected virtual void Dispose(bool disposing)
 		{
 			if (!disposing) return;
