@@ -1,8 +1,10 @@
 ﻿using CitizenFX.Core;
+using JetBrains.Annotations;
 
 namespace NFive.SDK.Client.Extensions
 {
-	public static class PlayerExtentions
+	[PublicAPI]
+	public static class PlayerExtensions
 	{
 		/// <summary>
 		/// Freezes the specified player in place.

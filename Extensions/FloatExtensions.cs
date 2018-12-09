@@ -1,8 +1,10 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace NFive.SDK.Client.Extensions
 {
-	public static class FloatExtentions
+	[PublicAPI]
+	public static class FloatExtensions
 	{
 		public static bool IsBetween(this float val, float min, float max) => val > min && val < max;
 

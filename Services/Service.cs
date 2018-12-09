@@ -10,7 +10,7 @@ using JetBrains.Annotations;
 
 namespace NFive.SDK.Client.Services
 {
-	[UsedImplicitly]
+	[PublicAPI]
 	public abstract class Service
 	{
 		protected readonly ILogger Logger;

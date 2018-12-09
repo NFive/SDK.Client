@@ -1,9 +1,11 @@
 ﻿using CitizenFX.Core;
+using JetBrains.Annotations;
 using NFive.SDK.Core.Models;
 
 namespace NFive.SDK.Client.Extensions
 {
-	public static class PositionExtentions
+	[PublicAPI]
+	public static class PositionExtensions
 	{
 		public static Vector3 ToVector3(this Position pos) => new Vector3
 		{

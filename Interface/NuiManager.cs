@@ -2,9 +2,11 @@
 using CitizenFX.Core.Native;
 using NFive.SDK.Core.Rpc;
 using System;
+using JetBrains.Annotations;
 
 namespace NFive.SDK.Client.Interface
 {
+	[PublicAPI]
 	public class NuiManager : INuiManager
 	{
 		private readonly EventHandlerDictionary events;

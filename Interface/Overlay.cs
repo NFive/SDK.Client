@@ -9,7 +9,7 @@ namespace NFive.SDK.Client.Interface
 	{
 		public OverlayManager Manager { get; }
 
-		public string Name => this.GetType().Name;
+		public string Name => GetType().Name;
 
 		protected Overlay(string fileName, OverlayManager manager)
 		{

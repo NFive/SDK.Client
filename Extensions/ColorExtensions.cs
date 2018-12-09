@@ -1,7 +1,9 @@
 ﻿using System.Drawing;
+using JetBrains.Annotations;
 
 namespace NFive.SDK.Client.Extensions
 {
+	[PublicAPI]
 	public static class ColorExtensions
 	{
 		public static Core.Models.Color ToColor(this Color color) => new Core.Models.Color

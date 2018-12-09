@@ -1,10 +1,12 @@
 ﻿using System;
 using CitizenFX.Core;
+using JetBrains.Annotations;
 using NFive.SDK.Client.Helpers;
 using NFive.SDK.Core.Models;
 
 namespace NFive.SDK.Client.Extensions
 {
+	[PublicAPI]
 	public static class VectorExtensions
 	{
 		public static Vector2 RotateAround(this Vector3 position, float radius, float angle) =>

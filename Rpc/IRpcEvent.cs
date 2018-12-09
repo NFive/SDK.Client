@@ -1,5 +1,8 @@
-﻿namespace NFive.SDK.Client.Rpc
+﻿using JetBrains.Annotations;
+
+namespace NFive.SDK.Client.Rpc
 {
+	[PublicAPI]
 	public interface IRpcEvent
 	{
 		string Event { get; }

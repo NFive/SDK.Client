@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using CitizenFX.Core;
+using JetBrains.Annotations;
 
 namespace NFive.SDK.Client.Input
 {
+	[PublicAPI]
 	public static class Input
 	{
 		public static Dictionary<InputModifier, int> ModifierFlagToKeyCode => new Dictionary<InputModifier, int>

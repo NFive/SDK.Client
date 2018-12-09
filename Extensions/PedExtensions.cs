@@ -1,8 +1,10 @@
 ﻿using System.Threading.Tasks;
 using CitizenFX.Core;
+using JetBrains.Annotations;
 
 namespace NFive.SDK.Client.Extensions
 {
+	[PublicAPI]
 	public static class PedExtensions
 	{
 		public static Vector3 GetPositionInFront(this Ped ped, float distance) => ped.Position.TranslateDir(ped.Heading + 90, distance);
