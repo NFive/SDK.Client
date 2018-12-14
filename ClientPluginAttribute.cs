@@ -4,5 +4,8 @@ using NFive.SDK.Core;
 namespace NFive.SDK.Client
 {
 	[PublicAPI]
-	public class ClientPluginAttribute : PluginAttribute { }
+	public class ClientPluginAttribute : PluginAttribute
+	{
+		public ClientPluginAttribute(uint target) : base(target) { }
+	}
 }
