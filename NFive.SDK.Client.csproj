@@ -82,6 +82,7 @@
     <Compile Include="Rpc\IRpc.cs" />
     <Compile Include="Rpc\IRpcEvent.cs" />
     <Compile Include="Rpc\IRpcHandler.cs" />
+    <Compile Include="SDK.cs" />
     <Compile Include="Services\Service.cs" />
   </ItemGroup>
   <ItemGroup>
