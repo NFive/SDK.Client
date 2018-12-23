@@ -11,6 +11,8 @@ namespace NFive.SDK.Client.Interface
 
 		public string Name => GetType().Name;
 
+		public bool Visible = true;
+
 		protected Overlay(string fileName, OverlayManager manager)
 		{
 			this.Manager = manager;
@@ -25,11 +27,13 @@ namespace NFive.SDK.Client.Interface
 		public void Show()
 		{
 			this.Manager.Send("show", true);
+			this.Visible = true;
 		}
 
 		public void Hide()
 		{
 			this.Manager.Send("show", false);
+			this.Visible = false;
 		}
 
 		protected void Send(string @event, object data = null)
