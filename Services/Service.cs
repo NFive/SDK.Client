@@ -1,13 +1,13 @@
-﻿using System;
-using System.Threading.Tasks;
 using CitizenFX.Core;
+using JetBrains.Annotations;
+using NFive.SDK.Client.Commands;
 using NFive.SDK.Client.Events;
 using NFive.SDK.Client.Interface;
 using NFive.SDK.Client.Rpc;
 using NFive.SDK.Core.Diagnostics;
 using NFive.SDK.Core.Models.Player;
-using JetBrains.Annotations;
-using NFive.SDK.Client.Commands;
+using System;
+using System.Threading.Tasks;
 
 namespace NFive.SDK.Client.Services
 {

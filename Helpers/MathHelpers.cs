@@ -1,4 +1,4 @@
-﻿namespace NFive.SDK.Client.Helpers
+namespace NFive.SDK.Client.Helpers
 {
 	public static class MathHelpers
 	{

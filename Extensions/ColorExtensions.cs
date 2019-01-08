@@ -1,5 +1,5 @@
-﻿using System.Drawing;
 using JetBrains.Annotations;
+using System.Drawing;
 
 namespace NFive.SDK.Client.Extensions
 {

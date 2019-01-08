@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using CitizenFX.Core;
 using JetBrains.Annotations;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NFive.SDK.Client.Input
 {
@@ -23,7 +23,7 @@ namespace NFive.SDK.Client.Input
 			if (modifier == InputModifier.Any) return true;
 
 			InputModifier bitMask = 0;
-			
+
 			ModifierFlagToKeyCode.ToList().ForEach(w =>
 			{
 				if (Game.IsControlPressed(0, (Control)w.Value)) bitMask = bitMask | w.Key;

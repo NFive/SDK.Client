@@ -1,8 +1,8 @@
-﻿using System;
 using CitizenFX.Core;
 using JetBrains.Annotations;
 using NFive.SDK.Client.Helpers;
 using NFive.SDK.Core.Models;
+using System;
 
 namespace NFive.SDK.Client.Extensions
 {

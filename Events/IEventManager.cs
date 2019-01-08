@@ -1,6 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
 using JetBrains.Annotations;
+using System;
+using System.Threading.Tasks;
 
 namespace NFive.SDK.Client.Events
 {
@@ -30,7 +30,7 @@ namespace NFive.SDK.Client.Events
 		void Raise<T1, T2, T3, T4>(string @event, T1 p1, T2 p2, T3 p3, T4 p4);
 
 		void Raise<T1, T2, T3, T4, T5>(string @event, T1 p1, T2 p2, T3 p3, T4 p4, T5 p5);
-		
+
 		Task RaiseAsync(string @event);
 
 		Task RaiseAsync<T>(string @event, T p1);

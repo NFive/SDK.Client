@@ -1,4 +1,4 @@
-﻿using CitizenFX.Core;
+using CitizenFX.Core;
 using JetBrains.Annotations;
 
 namespace NFive.SDK.Client.Extensions

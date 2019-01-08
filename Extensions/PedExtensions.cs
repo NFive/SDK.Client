@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
 using CitizenFX.Core;
 using JetBrains.Annotations;
+using System.Threading.Tasks;
 
 namespace NFive.SDK.Client.Extensions
 {

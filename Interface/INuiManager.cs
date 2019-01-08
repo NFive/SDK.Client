@@ -1,5 +1,5 @@
-﻿using System;
 using CitizenFX.Core;
+using System;
 
 namespace NFive.SDK.Client.Interface
 {

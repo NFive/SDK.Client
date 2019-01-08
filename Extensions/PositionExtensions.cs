@@ -1,4 +1,4 @@
-﻿using CitizenFX.Core;
+using CitizenFX.Core;
 using JetBrains.Annotations;
 using NFive.SDK.Core.Models;
 

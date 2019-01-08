@@ -1,6 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
 using JetBrains.Annotations;
+using System;
+using System.Threading.Tasks;
 
 namespace NFive.SDK.Client.Rpc
 {
