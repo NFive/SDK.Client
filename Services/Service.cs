@@ -37,6 +37,8 @@ namespace NFive.SDK.Client.Services
 
 		public virtual Task Started() => Task.FromResult(0);
 
+		public virtual Task HoldFocus() => Task.FromResult(0);
+
 		protected async Task Delay(int ms)
 		{
 			await BaseScript.Delay(ms);
