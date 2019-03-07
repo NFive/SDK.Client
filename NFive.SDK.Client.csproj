@@ -62,6 +62,7 @@
     <Compile Include="Configuration\ClientConfiguration.cs" />
     <Compile Include="Events\IEventManager.cs" />
     <Compile Include="Events\ITickManager.cs" />
+    <Compile Include="Events\SessionEvents.cs" />
     <Compile Include="Extensions\ColorExtensions.cs" />
     <Compile Include="Extensions\FloatExtensions.cs" />
     <Compile Include="Extensions\PedExtensions.cs" />
