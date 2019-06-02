@@ -1,4 +1,3 @@
-using CitizenFX.Core;
 using JetBrains.Annotations;
 using NFive.SDK.Core.Helpers;
 using NFive.SDK.Core.Models;
@@ -17,8 +16,8 @@ namespace NFive.SDK.Client.Extensions
 
 		public static Vector3 TranslateDir(this Vector3 pos, float angleInDegrees, float distance) =>
 			new Vector3(
-				pos.X + (float)Math.Cos(MathUtil.DegreesToRadians(angleInDegrees)) * distance,
-				pos.Y + (float)Math.Sin(MathUtil.DegreesToRadians(angleInDegrees)) * distance,
+				pos.X + (float)Math.Cos(CitizenFX.Core.MathUtil.DegreesToRadians(angleInDegrees)) * distance,
+				pos.Y + (float)Math.Sin(CitizenFX.Core.MathUtil.DegreesToRadians(angleInDegrees)) * distance,
 				pos.Z
 			);
 
@@ -28,6 +27,8 @@ namespace NFive.SDK.Client.Extensions
 				MathHelpers.Lerp(pos1.Y, pos2.Y, normalizedInterval),
 				MathHelpers.Lerp(pos1.Z, pos2.Z, normalizedInterval)
 			);
+
+		public static Vector3 ToVector3(this CitizenFX.Core.Vector3 vector3) => new Vector3(vector3.X, vector3.Y, vector3.Z);
 
 		public static Position ToPosition(this Vector3 vector3) => new Position(vector3.X, vector3.Y, vector3.Z);
 	}
