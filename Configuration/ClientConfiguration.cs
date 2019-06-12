@@ -6,6 +6,8 @@ namespace NFive.SDK.Client.Configuration
 	[PublicAPI]
 	public static class ClientConfiguration
 	{
-		public static LogLevel LogLevel { get; set; } = LogLevel.Debug;
+		public static LogLevel ConsoleLogLevel { get; set; } = LogLevel.Info;
+
+		public static LogLevel MirrorLogLevel { get; set; } = LogLevel.Info;
 	}
 }
