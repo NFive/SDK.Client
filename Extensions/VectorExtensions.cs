@@ -30,6 +30,8 @@ namespace NFive.SDK.Client.Extensions
 
 		public static Vector3 ToVector3(this CitizenFX.Core.Vector3 vector3) => new Vector3(vector3.X, vector3.Y, vector3.Z);
 
+		public static CitizenFX.Core.Vector3 ToCitVector3(this Vector3 vector3) => new CitizenFX.Core.Vector3(vector3.X, vector3.Y, vector3.Z);
+
 		public static Position ToPosition(this Vector3 vector3) => new Position(vector3.X, vector3.Y, vector3.Z);
 	}
 }
