@@ -7,6 +7,7 @@ using NFive.SDK.Core.Diagnostics;
 using NFive.SDK.Core.Models.Player;
 using System;
 using System.Threading.Tasks;
+using NFive.SDK.Client.Communications;
 
 namespace NFive.SDK.Client.Services
 {
@@ -15,16 +16,16 @@ namespace NFive.SDK.Client.Services
 	{
 		protected readonly ILogger Logger;
 		protected readonly ITickManager Ticks;
-		protected readonly IEventManager Events;
+		protected readonly ICommunicationManager Comms;
 		protected readonly ICommandManager Commands;
 		protected readonly OverlayManager OverlayManager;
 		protected readonly User User;
 
-		protected Service(ILogger logger, ITickManager ticks, IEventManager events, ICommandManager commands, OverlayManager overlayManager, User user)
+		protected Service(ILogger logger, ITickManager ticks, ICommunicationManager comms, ICommandManager commands, OverlayManager overlayManager, User user)
 		{
 			this.Logger = logger;
 			this.Ticks = ticks;
-			this.Events = events;
+			this.Comms = comms;
 			this.Commands = commands;
 			this.OverlayManager = overlayManager;
 			this.User = user;
