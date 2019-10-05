@@ -7,12 +7,12 @@ namespace NFive.SDK.Client.Events
 	[PublicAPI]
 	public interface ITickManager
 	{
-		void Attach(Action callback);
+		void On(Action callback);
 
-		void Attach(Func<Task> callback);
+		void On(Func<Task> callback);
 
-		void Detach(Action callback);
+		void Off(Action callback);
 
-		void Detach(Func<Task> callback);
+		void Off(Func<Task> callback);
 	}
 }
