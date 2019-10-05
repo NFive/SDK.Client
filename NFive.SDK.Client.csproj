@@ -72,8 +72,10 @@
     <Compile Include="Extensions\ReflectionExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\VectorExtensions.cs" />
+    <Compile Include="Input\HotKey.cs" />
     <Compile Include="Input\Input.cs" />
     <Compile Include="Input\InputModifier.cs" />
+    <Compile Include="Input\KeyCode.cs" />
     <Compile Include="Interface\INuiManager.cs" />
     <Compile Include="Interface\IOverlay.cs" />
     <Compile Include="Interface\NuiManager.cs" />
