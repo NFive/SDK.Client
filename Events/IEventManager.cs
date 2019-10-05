@@ -7,40 +7,28 @@ namespace NFive.SDK.Client.Events
 	[PublicAPI]
 	public interface IEventManager
 	{
-		void On(string @event, Action action);
+		void On(string @event, Action<ICommunicationMessage> action);
 
-		void On<T>(string @event, Action<T> action);
+		void On<T>(string @event, Action<ICommunicationMessage, T> action);
 
-		void On<T1, T2>(string @event, Action<T1, T2> action);
+		void On<T1, T2>(string @event, Action<ICommunicationMessage, T1, T2> action);
 
-		void On<T1, T2, T3>(string @event, Action<T1, T2, T3> action);
+		void On<T1, T2, T3>(string @event, Action<ICommunicationMessage, T1, T2, T3> action);
 
-		void On<T1, T2, T3, T4>(string @event, Action<T1, T2, T3, T4> action);
+		void On<T1, T2, T3, T4>(string @event, Action<ICommunicationMessage, T1, T2, T3, T4> action);
 
-		void On<T1, T2, T3, T4, T5>(string @event, Action<T1, T2, T3, T4, T5> action);
+		void On<T1, T2, T3, T4, T5>(string @event, Action<ICommunicationMessage, T1, T2, T3, T4, T5> action);
 
-		void Raise(string @event);
+		void Emit(string @event, params object[] payload);
 
-		void Raise<T>(string @event, T p1);
+		Task<T1> Request<T1>(string @event, params object[] args);
 
-		void Raise<T1, T2>(string @event, T1 p1, T2 p2);
+		Task<Tuple<T1, T2>> Request<T1, T2>(string @event, params object[] args);
 
-		void Raise<T1, T2, T3>(string @event, T1 p1, T2 p2, T3 p3);
+		Task<Tuple<T1, T2, T3>> Request<T1, T2, T3>(string @event, params object[] args);
 
-		void Raise<T1, T2, T3, T4>(string @event, T1 p1, T2 p2, T3 p3, T4 p4);
+		Task<Tuple<T1, T2, T3, T4>> Request<T1, T2, T3, T4>(string @event, params object[] args);
 
-		void Raise<T1, T2, T3, T4, T5>(string @event, T1 p1, T2 p2, T3 p3, T4 p4, T5 p5);
-
-		Task RaiseAsync(string @event);
-
-		Task RaiseAsync<T>(string @event, T p1);
-
-		Task RaiseAsync<T1, T2>(string @event, T1 p1, T2 p2);
-
-		Task RaiseAsync<T1, T2, T3>(string @event, T1 p1, T2 p2, T3 p3);
-
-		Task RaiseAsync<T1, T2, T3, T4>(string @event, T1 p1, T2 p2, T3 p3, T4 p4);
-
-		Task RaiseAsync<T1, T2, T3, T4, T5>(string @event, T1 p1, T2 p2, T3 p3, T4 p4, T5 p5);
+		Task<Tuple<T1, T2, T3, T4, T5>> Request<T1, T2, T3, T4, T5>(string @event, params object[] args);
 	}
 }

@@ -60,7 +60,16 @@
   <ItemGroup>
     <Compile Include="ClientPluginAttribute.cs" />
     <Compile Include="Commands\ICommandManager.cs" />
+    <Compile Include="Communications\ICommunicationReceive.cs" />
+    <Compile Include="Communications\ICommunicationReceiveClient.cs" />
+    <Compile Include="Communications\ICommunicationReceiveServer.cs" />
+    <Compile Include="Communications\ICommunicationTarget.cs" />
+    <Compile Include="Communications\ICommunicationTransmit.cs" />
+    <Compile Include="Communications\ICommunicationTransmitClient.cs" />
+    <Compile Include="Communications\ICommunicationTransmitServer.cs" />
     <Compile Include="Configuration\ClientConfiguration.cs" />
+    <Compile Include="Communications\ICommunicationManager.cs" />
+    <Compile Include="Events\ICommunicationMessage.cs" />
     <Compile Include="Events\IEventManager.cs" />
     <Compile Include="Events\ITickManager.cs" />
     <Compile Include="Events\SessionEvents.cs" />
@@ -83,11 +92,6 @@
     <Compile Include="Interface\OverlayEventArgs.cs" />
     <Compile Include="Interface\OverlayManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rpc\IRpc.cs" />
-    <Compile Include="Rpc\IRpcAttach.cs" />
-    <Compile Include="Rpc\IRpcEvent.cs" />
-    <Compile Include="Rpc\IRpcHandler.cs" />
-    <Compile Include="Rpc\IRpcTrigger.cs" />
     <Compile Include="SDK.cs" />
     <Compile Include="Services\Service.cs" />
   </ItemGroup>
@@ -96,5 +100,6 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
