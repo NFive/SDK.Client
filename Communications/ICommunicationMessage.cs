@@ -1,4 +1,4 @@
-namespace NFive.SDK.Client.Events
+namespace NFive.SDK.Client.Communications
 {
 	public interface ICommunicationMessage
 	{
