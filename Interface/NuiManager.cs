@@ -1,8 +1,8 @@
+using System;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using JetBrains.Annotations;
 using NFive.SDK.Core.Rpc;
-using System;
 
 namespace NFive.SDK.Client.Interface
 {
@@ -11,7 +11,10 @@ namespace NFive.SDK.Client.Interface
 	{
 		private readonly EventHandlerDictionary events;
 
-		public NuiManager(EventHandlerDictionary events) { this.events = events; }
+		public NuiManager(EventHandlerDictionary events)
+		{
+			this.events = events;
+		}
 
 		public void Send(object data) => API.SendNuiMessage(new Serializer().Serialize(data));
 

@@ -1,6 +1,6 @@
+using System;
 using CitizenFX.Core;
 using JetBrains.Annotations;
-using System;
 
 namespace NFive.SDK.Client.Interface
 {
@@ -11,7 +11,7 @@ namespace NFive.SDK.Client.Interface
 
 		public string Name => GetType().Name;
 
-		public bool Visible = true;
+		public bool Visible { get; } = true;
 
 		protected Overlay(string fileName, OverlayManager manager)
 		{

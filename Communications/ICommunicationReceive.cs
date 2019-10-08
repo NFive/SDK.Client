@@ -1,6 +1,5 @@
 using System;
 using JetBrains.Annotations;
-using NFive.SDK.Client.Events;
 
 namespace NFive.SDK.Client.Communications
 {

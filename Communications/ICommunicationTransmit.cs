@@ -62,6 +62,5 @@ namespace NFive.SDK.Client.Communications
 		/// <param name="payloads">The payloads.</param>
 		/// <returns>The requested types.</returns>
 		Task<Tuple<TReturn1, TReturn2, TReturn3, TReturn4, TReturn5>> Request<TReturn1, TReturn2, TReturn3, TReturn4, TReturn5>(params object[] payloads);
-
 	}
 }
