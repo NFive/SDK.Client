@@ -1,5 +1,8 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace NFive.SDK.Client.Input
 {
+	[SuppressMessage("ReSharper", "IdentifierTypo")]
 	public enum KeyCode
 	{
 		None = 0,

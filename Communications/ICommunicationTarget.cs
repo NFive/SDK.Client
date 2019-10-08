@@ -1,5 +1,8 @@
+using JetBrains.Annotations;
+
 namespace NFive.SDK.Client.Communications
 {
+	[PublicAPI]
 	public interface ICommunicationTarget
 	{
 		/// <summary>

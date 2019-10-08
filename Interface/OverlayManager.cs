@@ -1,8 +1,10 @@
 using System;
 using CitizenFX.Core;
+using JetBrains.Annotations;
 
 namespace NFive.SDK.Client.Interface
 {
+	[PublicAPI]
 	public class OverlayManager
 	{
 		public string Plugin { get; }
