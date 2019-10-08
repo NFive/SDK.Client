@@ -11,7 +11,7 @@ namespace NFive.SDK.Client.Interface
 
 		public string Name => GetType().Name;
 
-		public bool Visible { get; } = true;
+		public bool Visible { get; private set; } = true;
 
 		protected Overlay(string fileName, OverlayManager manager)
 		{
