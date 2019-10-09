@@ -7,12 +7,12 @@ namespace NFive.SDK.Client.Commands
 	[PublicAPI]
 	public interface ICommandManager
 	{
-		void Register(string command, Action callback);
+		void On(string command, Action action);
 
-		void Register(string command, Action<string> callback);
+		void On(string command, Action<string> action);
 
-		void Register(string command, Action<IEnumerable<string>> callback);
+		void On(string command, Action<IEnumerable<string>> action);
 
-		void Register<T>(string command, Action<T> callback);
+		void On<T>(string command, Action<T> action);
 	}
 }
