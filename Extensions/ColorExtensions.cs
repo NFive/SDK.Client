@@ -1,12 +1,12 @@
 using JetBrains.Annotations;
-using System.Drawing;
+using NFive.SDK.Core.Models;
 
 namespace NFive.SDK.Client.Extensions
 {
 	[PublicAPI]
 	public static class ColorExtensions
 	{
-		public static Core.Models.Color ToColor(this Color color) => new Core.Models.Color
+		public static Color ToColor(this System.Drawing.Color color) => new Color
 		{
 			R = color.R,
 			G = color.G,
@@ -14,6 +14,6 @@ namespace NFive.SDK.Client.Extensions
 			A = color.A
 		};
 
-		public static Color ToCitColor(this Core.Models.Color color) => Color.FromArgb(color.A ?? 0, color.R ?? 0, color.G ?? 0, color.B ?? 0);
+		public static System.Drawing.Color ToCitColor(this Color color) => System.Drawing.Color.FromArgb(color.A ?? 0, color.R ?? 0, color.G ?? 0, color.B ?? 0);
 	}
 }

@@ -69,8 +69,7 @@
     <Compile Include="Communications\ICommunicationTransmitServer.cs" />
     <Compile Include="Configuration\ClientConfiguration.cs" />
     <Compile Include="Communications\ICommunicationManager.cs" />
-    <Compile Include="Events\ICommunicationMessage.cs" />
-    <Compile Include="Events\IEventManager.cs" />
+    <Compile Include="Communications\ICommunicationMessage.cs" />
     <Compile Include="Events\ITickManager.cs" />
     <Compile Include="Events\SessionEvents.cs" />
     <Compile Include="Extensions\ColorExtensions.cs" />
@@ -78,7 +77,6 @@
     <Compile Include="Extensions\PedExtensions.cs" />
     <Compile Include="Extensions\PlayerExtensions.cs" />
     <Compile Include="Extensions\PositionExtensions.cs" />
-    <Compile Include="Extensions\ReflectionExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\VectorExtensions.cs" />
     <Compile Include="Input\HotKey.cs" />

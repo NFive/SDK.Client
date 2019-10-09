@@ -24,7 +24,7 @@ namespace NFive.SDK.Client.Extensions
 		/// <summary>
 		/// Unfreezes the specified player.
 		/// </summary>
-		/// <see cref="Freeze"/>
+		/// <see cref="Freeze" />
 		/// <param name="player">The player to unfreeze.</param>
 		public static void Unfreeze(this Player player) => player.Freeze(false);
 	}

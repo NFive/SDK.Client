@@ -1,5 +1,8 @@
-namespace NFive.SDK.Client.Events
+using JetBrains.Annotations;
+
+namespace NFive.SDK.Client.Communications
 {
+	[PublicAPI]
 	public interface ICommunicationMessage
 	{
 		/// <summary>

@@ -1,6 +1,6 @@
-using JetBrains.Annotations;
 using System;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 
 namespace NFive.SDK.Client.Events
 {
