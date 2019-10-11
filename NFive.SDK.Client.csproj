@@ -50,8 +50,8 @@
       <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="NFive.SDK.Core.net, Version=0.1.0.46, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\NFive.SDK.Core.0.1.0.46\lib\net452\NFive.SDK.Core.net.dll</HintPath>
+    <Reference Include="NFive.SDK.Core.net, Version=0.1.0.47, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NFive.SDK.Core.0.1.0.47\lib\net452\NFive.SDK.Core.net.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -70,6 +70,8 @@
     <Compile Include="Configuration\ClientConfiguration.cs" />
     <Compile Include="Communications\ICommunicationManager.cs" />
     <Compile Include="Communications\ICommunicationMessage.cs" />
+    <Compile Include="Events\ClientEvents.cs" />
+    <Compile Include="Events\FiveMClientEvents.cs" />
     <Compile Include="Events\ITickManager.cs" />
     <Compile Include="Events\SessionEvents.cs" />
     <Compile Include="Extensions\ColorExtensions.cs" />
