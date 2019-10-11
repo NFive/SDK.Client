@@ -2,7 +2,7 @@ using System;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using JetBrains.Annotations;
-using NFive.SDK.Core.Rpc;
+using NFive.SDK.Core.Utilities;
 
 namespace NFive.SDK.Client.Interface
 {
