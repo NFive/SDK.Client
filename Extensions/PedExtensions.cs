@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using CitizenFX.Core;
 using JetBrains.Annotations;
+using NFive.SDK.Core.Extensions;
 using Vector3 = NFive.SDK.Core.Models.Vector3;
 
 namespace NFive.SDK.Client.Extensions
