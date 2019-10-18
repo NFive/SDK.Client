@@ -1,5 +1,4 @@
 using System;
-using CitizenFX.Core;
 using JetBrains.Annotations;
 
 namespace NFive.SDK.Client.Interface
@@ -17,9 +16,9 @@ namespace NFive.SDK.Client.Interface
 			this.Nui = nui;
 		}
 
-		public void Send(string @event, object data = null)
+		public void Emit(string @event, object data = null)
 		{
-			this.Nui.Send(new
+			this.Nui.Emit(new
 			{
 				plugin = this.Plugin,
 				@event,
@@ -27,14 +26,24 @@ namespace NFive.SDK.Client.Interface
 			});
 		}
 
-		public void Attach(string @event, Action<dynamic, CallbackDelegate> callback)
+		public void On(string @event, Action action)
 		{
-			this.Nui.Attach($"{this.Plugin}/{@event}", callback);
+			this.Nui.On($"{this.Plugin}/{@event}", action);
 		}
 
-		public void Attach<T>(string @event, Action<T, CallbackDelegate> callback)
+		public void On<T>(string @event, Action<T> action)
 		{
-			this.Nui.Attach($"{this.Plugin}/{@event}", callback);
+			this.Nui.On($"{this.Plugin}/{@event}", action);
+		}
+
+		public void On<TReturn>(string @event, Func<TReturn> action)
+		{
+			this.Nui.On($"{this.Plugin}/{@event}", action);
+		}
+
+		public void On<T, TReturn>(string @event, Func<T, TReturn> action)
+		{
+			this.Nui.On($"{this.Plugin}/{@event}", action);
 		}
 	}
 }

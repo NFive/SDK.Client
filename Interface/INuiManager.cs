@@ -1,14 +1,17 @@
 using System;
-using CitizenFX.Core;
 
 namespace NFive.SDK.Client.Interface
 {
-	public interface INuiManager
-	{
-		void Send(object data);
+public interface INuiManager
+{
+	void Emit(object data);
 
-		void Attach(string type, Action<dynamic, CallbackDelegate> callback);
+	void On(string @event, Action action);
 
-		void Attach<T>(string type, Action<T, CallbackDelegate> callback);
-	}
+	void On<T>(string @event, Action<T> action);
+
+	void On<TReturn>(string @event, Func<TReturn> action);
+
+	void On<T, TReturn>(string @event, Func<T, TReturn> action);
+}
 }

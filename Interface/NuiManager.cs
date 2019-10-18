@@ -1,4 +1,5 @@
 using System;
+using System.Dynamic;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using JetBrains.Annotations;
@@ -16,22 +17,61 @@ namespace NFive.SDK.Client.Interface
 			this.events = events;
 		}
 
-		public void Send(object data) => API.SendNuiMessage(new Serializer().Serialize(data));
-
-		public void Attach(string type, Action<dynamic, CallbackDelegate> callback)
+		public void Emit(object data)
 		{
-			API.RegisterNuiCallbackType(type);
-
-			this.events[$"__cfx_nui:{type}"] += callback; // TODO: Dispose
+			API.SendNuiMessage(new Serializer().Serialize(data));
 		}
 
-		public void Attach<T>(string type, Action<T, CallbackDelegate> callback)
+		public void On(string @event, Action action)
 		{
-			Attach(type, (data, cb) =>
+			API.RegisterNuiCallbackType(@event);
+
+			this.events[$"__cfx_nui:{@event}"] += new Action<ExpandoObject, CallbackDelegate>((data, callback) =>
+			{
+				action();
+
+				callback("{}");
+			});
+		}
+
+		public void On<T>(string @event, Action<T> action)
+		{
+			API.RegisterNuiCallbackType(@event);
+
+			this.events[$"__cfx_nui:{@event}"] += new Action<ExpandoObject, CallbackDelegate>((data, callback) =>
 			{
 				var serializer = new Serializer();
+				var typedData = serializer.Deserialize<T>(serializer.Serialize(data));
 
-				callback(serializer.Deserialize<T>(serializer.Serialize(data)), cb);
+				action(typedData);
+
+				callback("{}");
+			});
+		}
+
+		public void On<TReturn>(string @event, Func<TReturn> action)
+		{
+			API.RegisterNuiCallbackType(@event);
+
+			this.events[$"__cfx_nui:{@event}"] += new Action<ExpandoObject, CallbackDelegate>((data, callback) =>
+			{
+				var result = action();
+
+				callback(new Serializer().Serialize(result));
+			});
+		}
+
+		public void On<T, TReturn>(string @event, Func<T, TReturn> action)
+		{
+			API.RegisterNuiCallbackType(@event);
+
+			this.events[$"__cfx_nui:{@event}"] += new Action<ExpandoObject, CallbackDelegate>((data, callback) =>
+			{
+				var typedData = new Serializer().Deserialize<T>(new Serializer().Serialize(data));
+
+				var result = action(typedData);
+
+				callback(new Serializer().Serialize(result));
 			});
 		}
 	}
