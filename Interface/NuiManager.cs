@@ -26,7 +26,7 @@ namespace NFive.SDK.Client.Interface
 		{
 			API.RegisterNuiCallbackType(@event);
 
-			this.events[$"__cfx_nui:{@event}"] += new Action<ExpandoObject, CallbackDelegate>((data, callback) =>
+			this.events[$"__cfx_nui:{@event}"] += new Action<dynamic, CallbackDelegate>((data, callback) =>
 			{
 				action();
 
@@ -38,7 +38,7 @@ namespace NFive.SDK.Client.Interface
 		{
 			API.RegisterNuiCallbackType(@event);
 
-			this.events[$"__cfx_nui:{@event}"] += new Action<ExpandoObject, CallbackDelegate>((data, callback) =>
+			this.events[$"__cfx_nui:{@event}"] += new Action<dynamic, CallbackDelegate>((data, callback) =>
 			{
 				var serializer = new Serializer();
 				var typedData = serializer.Deserialize<T>(serializer.Serialize(data));
@@ -53,7 +53,7 @@ namespace NFive.SDK.Client.Interface
 		{
 			API.RegisterNuiCallbackType(@event);
 
-			this.events[$"__cfx_nui:{@event}"] += new Action<ExpandoObject, CallbackDelegate>((data, callback) =>
+			this.events[$"__cfx_nui:{@event}"] += new Action<dynamic, CallbackDelegate>((data, callback) =>
 			{
 				var result = action();
 
@@ -65,7 +65,7 @@ namespace NFive.SDK.Client.Interface
 		{
 			API.RegisterNuiCallbackType(@event);
 
-			this.events[$"__cfx_nui:{@event}"] += new Action<ExpandoObject, CallbackDelegate>((data, callback) =>
+			this.events[$"__cfx_nui:{@event}"] += new Action<dynamic, CallbackDelegate>((data, callback) =>
 			{
 				var typedData = new Serializer().Deserialize<T>(new Serializer().Serialize(data));
 
