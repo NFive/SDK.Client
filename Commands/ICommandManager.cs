@@ -12,7 +12,5 @@ namespace NFive.SDK.Client.Commands
 		void On(string command, Action<string> action);
 
 		void On(string command, Action<IEnumerable<string>> action);
-
-		void On<T>(string command, Action<T> action);
 	}
 }
