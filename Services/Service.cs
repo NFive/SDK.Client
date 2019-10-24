@@ -28,10 +28,10 @@ namespace NFive.SDK.Client.Services
 		protected readonly ITickManager Ticks;
 		protected readonly ICommunicationManager Comms;
 		protected readonly ICommandManager Commands;
-		protected readonly OverlayManager OverlayManager;
+		protected readonly IOverlayManager OverlayManager;
 		protected readonly User User;
 
-		protected Service(ILogger logger, ITickManager ticks, ICommunicationManager comms, ICommandManager commands, OverlayManager overlayManager, User user)
+		protected Service(ILogger logger, ITickManager ticks, ICommunicationManager comms, ICommandManager commands, IOverlayManager overlayManager, User user)
 		{
 			this.Logger = logger;
 			this.Ticks = ticks;

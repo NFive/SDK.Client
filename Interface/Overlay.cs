@@ -6,87 +6,83 @@ namespace NFive.SDK.Client.Interface
 	[PublicAPI]
 	public abstract class Overlay
 	{
-		private bool focus;
-
-		public OverlayManager Manager { get; }
+		private readonly IOverlayManager manager;
 
 		public string Name => GetType().Name;
 
-		public bool Visible { get; private set; } = true;
-
-		public bool HasCursor { get; set; } = false;
-
-		public bool Focused
+		protected Overlay(IOverlayManager manager, string fileName)
 		{
-			get => this.focus;
-			set
-			{
-				this.focus = value;
-				this.Manager.Nui.Focus(this.focus, this.HasCursor);
-			}
-		}
-
-		protected Overlay(OverlayManager manager, string fileName)
-		{
-			this.Manager = manager;
+			this.manager = manager;
 
 			if (string.IsNullOrEmpty(fileName)) fileName = $"{this.Name}.html";
 
-			this.Manager.On("nfive:ready", Ready);
+			this.manager.On("nfive:ready", Ready);
 
-			this.Manager.Emit("nfive:load", new
+			this.manager.Emit("nfive:load", new
 			{
 				overlay = this.Name,
 				file = fileName
 			});
 		}
 
-		protected Overlay(OverlayManager manager) : this(manager, null) { }
+		protected Overlay(IOverlayManager manager) : this(manager, null) { }
 
-		protected dynamic Ready() => null;
+		protected virtual dynamic Ready() => null;
 
-		public void Show()
+		public void Focus(bool showCursor)
 		{
-			this.Manager.Emit("nfive:visible", true);
-			this.Visible = true;
+			this.manager.Focus(true, showCursor);
 		}
 
-		public void Hide()
+		public void Blur()
 		{
-			this.Manager.Emit("nfive:visible", false);
-			this.Visible = false;
+			this.manager.Focus(false, false);
+		}
+
+		public void Show(bool focus = true, bool showCursor = true)
+		{
+			this.manager.Emit("nfive:visible", true);
+
+			if (focus) Focus(showCursor);
+		}
+
+		public void Hide(bool blur = true)
+		{
+			this.manager.Emit("nfive:visible", false);
+
+			if (blur) Blur();
 		}
 
 		public void Emit(string @event, object data = null)
 		{
-			this.Manager.Emit(@event, data);
+			this.manager.Emit(@event, data);
 		}
 
 		public void On(string @event, Action action)
 		{
-			this.Manager.On(@event, action);
+			this.manager.On(@event, action);
 		}
 
 		public void On<T>(string @event, Action<T> action)
 		{
-			this.Manager.On(@event, action);
+			this.manager.On(@event, action);
 		}
 
 		public void On<TReturn>(string @event, Func<TReturn> action)
 		{
-			this.Manager.On(@event, action);
+			this.manager.On(@event, action);
 		}
 
 		public void On<T, TReturn>(string @event, Func<T, TReturn> action)
 		{
-			this.Manager.On(@event, action);
+			this.manager.On(@event, action);
 		}
 
 		protected virtual void Dispose(bool disposing)
 		{
 			if (!disposing) return;
 
-			this.Manager.Emit("nfive:destroy");
+			this.manager.Emit("nfive:destroy");
 		}
 
 		public void Dispose()
