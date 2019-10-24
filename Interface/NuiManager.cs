@@ -1,5 +1,4 @@
 using System;
-using System.Dynamic;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using JetBrains.Annotations;
@@ -8,13 +7,18 @@ using NFive.SDK.Core.Utilities;
 namespace NFive.SDK.Client.Interface
 {
 	[PublicAPI]
-	public class NuiManager : INuiManager
+	public class NuiManager
 	{
 		private readonly EventHandlerDictionary events;
 
 		public NuiManager(EventHandlerDictionary events)
 		{
 			this.events = events;
+		}
+
+		public void Focus(bool focused, bool cursor)
+		{
+			API.SetNuiFocus(focused, cursor);
 		}
 
 		public void Emit(object data)

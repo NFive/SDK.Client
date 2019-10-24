@@ -4,23 +4,37 @@ using JetBrains.Annotations;
 namespace NFive.SDK.Client.Interface
 {
 	[PublicAPI]
-	public abstract class Overlay : IOverlay
+	public abstract class Overlay
 	{
+		private bool focus;
+
 		public OverlayManager Manager { get; }
 
 		public string Name => GetType().Name;
 
 		public bool Visible { get; private set; } = true;
 
+		public bool HasCursor { get; set; } = false;
+
+		public bool Focused
+		{
+			get => this.focus;
+			set
+			{
+				this.focus = value;
+				this.Manager.Nui.Focus(this.focus, this.HasCursor);
+			}
+		}
+
 		protected Overlay(OverlayManager manager, string fileName)
 		{
 			this.Manager = manager;
 
 			if (string.IsNullOrEmpty(fileName)) fileName = $"{this.Name}.html";
-			
-			this.Manager.On("ready", Ready);
 
-			this.Manager.Emit("load-overlay", new
+			this.Manager.On("nfive:ready", Ready);
+
+			this.Manager.Emit("nfive:load", new
 			{
 				overlay = this.Name,
 				file = fileName
@@ -29,17 +43,17 @@ namespace NFive.SDK.Client.Interface
 
 		protected Overlay(OverlayManager manager) : this(manager, null) { }
 
-		public abstract dynamic Ready();
+		protected dynamic Ready() => null;
 
 		public void Show()
 		{
-			this.Manager.Emit("show", true);
+			this.Manager.Emit("nfive:visible", true);
 			this.Visible = true;
 		}
 
 		public void Hide()
 		{
-			this.Manager.Emit("show", false);
+			this.Manager.Emit("nfive:visible", false);
 			this.Visible = false;
 		}
 
@@ -72,7 +86,7 @@ namespace NFive.SDK.Client.Interface
 		{
 			if (!disposing) return;
 
-			this.Manager.Emit("destroy-overlay");
+			this.Manager.Emit("nfive:destroy");
 		}
 
 		public void Dispose()

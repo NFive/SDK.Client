@@ -8,9 +8,9 @@ namespace NFive.SDK.Client.Interface
 	{
 		public string Plugin { get; }
 
-		public INuiManager Nui { get; }
+		public NuiManager Nui { get; }
 
-		public OverlayManager(string plugin, INuiManager nui)
+		public OverlayManager(string plugin, NuiManager nui)
 		{
 			this.Plugin = plugin;
 			this.Nui = nui;
