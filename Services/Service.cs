@@ -22,14 +22,13 @@ namespace NFive.SDK.Client.Services
 	[PublicAPI]
 	public abstract class Service
 	{
-		protected static ILocaleCatalog Catalog;
-
 		protected readonly ILogger Logger;
 		protected readonly ITickManager Ticks;
 		protected readonly ICommunicationManager Comms;
 		protected readonly ICommandManager Commands;
 		protected readonly IOverlayManager OverlayManager;
 		protected readonly User User;
+		protected readonly ILocaleCatalog Catalog;
 
 		protected Service(ILogger logger, ITickManager ticks, ICommunicationManager comms, ICommandManager commands, IOverlayManager overlayManager, User user)
 		{
@@ -40,13 +39,17 @@ namespace NFive.SDK.Client.Services
 			this.OverlayManager = overlayManager;
 			this.User = user;
 
-			Catalog = new LocaleCatalog(new Catalog(CultureInfo.InvariantCulture));
+			// Load empty default catalog
+			this.Catalog = new LocaleCatalog(new Catalog(CultureInfo.InvariantCulture));
 
 			var type = GetType();
+
+			// Get all embedded resources
 			var catalogs = type.Assembly.GetManifestResourceNames();
 
 			if (!catalogs.Any()) return;
 
+			// Match found cultures with server cultures
 			var matches = ClientConfiguration.Locale.Culture.Where(c => catalogs.Contains($"{type.Namespace}.Locales.{c.Name}.mo")).ToList();
 
 			foreach (var culture in matches)
@@ -57,7 +60,8 @@ namespace NFive.SDK.Client.Services
 
 					try
 					{
-						Catalog = new LocaleCatalog(new Catalog(new MoLoader(resourceStream, new MoFileParser(Encoding.UTF8, false)), culture));
+						// Load MO file locale
+						this.Catalog = new LocaleCatalog(new Catalog(new MoLoader(resourceStream, new MoFileParser(Encoding.UTF8, false)), culture));
 
 						this.Logger.Debug($"Loaded locale: {type.Namespace}.Locales.{culture.Name}.mo");
 
@@ -65,27 +69,27 @@ namespace NFive.SDK.Client.Services
 					}
 					catch (Exception ex)
 					{
-						this.Logger.Error(ex, $"Loading plugin locale catalog \"{type.Namespace}.Locales.{culture.Name}.mo\" failed");
+						this.Logger.Error(ex, $"Loading plugin locale catalog failed: {type.Namespace}.Locales.{culture.Name}.mo");
 					}
 				}
 			}
 		}
 
-		public static string _(string text) => Catalog.GetString(text);
+		public string _(string text) => this.Catalog.GetString(text);
 
-		public static string _(string text, params object[] args) => Catalog.GetString(text, args);
+		public string _(string text, params object[] args) => this.Catalog.GetString(text, args);
 
-		public static string _n(string text, string pluralText, long n) => Catalog.GetPluralString(text, pluralText, n);
+		public string _n(string text, string pluralText, long n) => this.Catalog.GetPluralString(text, pluralText, n);
 
-		public static string _n(string text, string pluralText, long n, params object[] args) => Catalog.GetPluralString(text, pluralText, n, args);
+		public string _n(string text, string pluralText, long n, params object[] args) => this.Catalog.GetPluralString(text, pluralText, n, args);
 
-		public static string _p(string context, string text) => Catalog.GetParticularString(context, text);
+		public string _p(string context, string text) => this.Catalog.GetParticularString(context, text);
 
-		public static string _p(string context, string text, params object[] args) => Catalog.GetParticularString(context, text, args);
+		public string _p(string context, string text, params object[] args) => this.Catalog.GetParticularString(context, text, args);
 
-		public static string _pn(string context, string text, string pluralText, long n) => Catalog.GetParticularPluralString(context, text, pluralText, n);
+		public string _pn(string context, string text, string pluralText, long n) => this.Catalog.GetParticularPluralString(context, text, pluralText, n);
 
-		public static string _pn(string context, string text, string pluralText, long n, params object[] args) => Catalog.GetParticularPluralString(context, text, pluralText, n, args);
+		public string _pn(string context, string text, string pluralText, long n, params object[] args) => this.Catalog.GetParticularPluralString(context, text, pluralText, n, args);
 
 		public virtual Task Loaded() => Task.FromResult(0);
 
