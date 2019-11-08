@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
@@ -745,6 +746,7 @@ namespace NFive.SDK.Client.Input
 			KeyCode.KeyX
 		};
 
+		[SuppressMessage("ReSharper", "StringLiteralTypo")]
 		public static List<string> ControlNativeNames = new List<string> {
 			"INPUT_NEXT_CAMERA",
 			"INPUT_LOOK_LR",
@@ -1299,10 +1301,10 @@ namespace NFive.SDK.Client.Input
 			"Frontend Up",
 			"Frontend Left",
 			"Frontend Right",
-			"Frontend Rdown",
-			"Frontend Rup",
-			"Frontend Rleft",
-			"Frontend Rright",
+			"Frontend R Down",
+			"Frontend R Up",
+			"Frontend R Left",
+			"Frontend R Right",
 			"Frontend Axis X",
 			"Frontend Axis Y",
 			"Frontend Right Axis X",
