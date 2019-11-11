@@ -19,8 +19,6 @@ namespace NFive.SDK.Client.Input
 			[InputModifier.Shift] = 21
 		};
 
-		public static List<Hotkey> UserMappings = new List<Hotkey>();
-
 		public static List<ButtonCode> ControlButtonCodeMapping = new List<ButtonCode>
 		{
 			ButtonCode.Back,
