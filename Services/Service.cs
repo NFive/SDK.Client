@@ -22,6 +22,10 @@ namespace NFive.SDK.Client.Services
 	[PublicAPI]
 	public abstract class Service
 	{
+		public static EventHandlerDictionary EventHandlers;
+		public static ExportDictionary Exports;
+		public static PlayerList Players;
+
 		protected readonly ILogger Logger;
 		protected readonly ITickManager Ticks;
 		protected readonly ICommunicationManager Comms;
