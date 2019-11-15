@@ -1855,6 +1855,12 @@ namespace NFive.SDK.Client.Input
 			return bitMask == modifier;
 		}
 
+		public static bool IsLastInputMethod(InputMethod method)
+		{
+			if (method == InputMethod.Any) return true;
+			return LastInputMethod == method;
+		}
+
 		public static bool IsAnyControlJustPressed(InputMethod method = InputMethod.Any)
 		{
 			return Enum.GetValues(typeof(InputControl)).Cast<InputControl>().Any(value => IsControlJustPressed(value, InputModifier.None, method));
@@ -1862,17 +1868,17 @@ namespace NFive.SDK.Client.Input
 
 		public static bool IsControlPressed(InputControl control, InputModifier modifier = InputModifier.None, InputMethod method = InputMethod.Any)
 		{
-			return API.IsDisabledControlPressed(0, (int)control) && IsControlModifierPressed(modifier) && LastInputMethod.HasFlag(method);
+			return API.IsDisabledControlPressed(0, (int)control) && IsControlModifierPressed(modifier) && IsLastInputMethod(method);
 		}
 
 		public static bool IsControlJustPressed(InputControl control, InputModifier modifier = InputModifier.None, InputMethod method = InputMethod.Any)
 		{
-			return API.IsDisabledControlJustPressed(0, (int)control) && IsControlModifierPressed(modifier) && LastInputMethod.HasFlag(method);
+			return API.IsDisabledControlJustPressed(0, (int)control) && IsControlModifierPressed(modifier) && IsLastInputMethod(method);
 		}
 
 		public static bool IsControlJustReleased(InputControl control, InputModifier modifier = InputModifier.None, InputMethod method = InputMethod.Any)
 		{
-			return API.IsDisabledControlJustReleased(0, (int)control) && IsControlModifierPressed(modifier) && LastInputMethod.HasFlag(method);
+			return API.IsDisabledControlJustReleased(0, (int)control) && IsControlModifierPressed(modifier) && IsLastInputMethod(method);
 		}
 
 		public static bool IsDisabledControlPressed(InputControl control, InputModifier modifier = InputModifier.None, InputMethod method = InputMethod.Any)
@@ -1892,17 +1898,17 @@ namespace NFive.SDK.Client.Input
 
 		public static bool IsEnabledControlPressed(InputControl control, InputModifier modifier = InputModifier.None, InputMethod method = InputMethod.Any)
 		{
-			return API.IsControlPressed(0, (int)control) && IsControlModifierPressed(modifier) && LastInputMethod.HasFlag(method);
+			return API.IsControlPressed(0, (int)control) && IsControlModifierPressed(modifier) && IsLastInputMethod(method);
 		}
 
 		public static bool IsEnabledControlJustPressed(InputControl control, InputModifier modifier = InputModifier.None, InputMethod method = InputMethod.Any)
 		{
-			return API.IsControlJustPressed(0, (int)control) && IsControlModifierPressed(modifier) && LastInputMethod.HasFlag(method);
+			return API.IsControlJustPressed(0, (int)control) && IsControlModifierPressed(modifier) && IsLastInputMethod(method);
 		}
 
 		public static bool IsEnabledControlJustReleased(InputControl control, InputModifier modifier = InputModifier.None, InputMethod method = InputMethod.Any)
 		{
-			return API.IsControlJustReleased(0, (int)control) && IsControlModifierPressed(modifier) && LastInputMethod.HasFlag(method);
+			return API.IsControlJustReleased(0, (int)control) && IsControlModifierPressed(modifier) && IsLastInputMethod(method);
 		}
 	}
 }
