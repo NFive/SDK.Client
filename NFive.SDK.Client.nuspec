@@ -12,6 +12,6 @@
     <description>$description$</description>
     <copyright>$copyright$</copyright>
     <tags>nfive fivem gtav</tags>
-    <repository type="git" url="git://github.com/Five/SDK.Client" />
+    <repository type="git" url="git://github.com/NFive/SDK.Client" />
   </metadata>
 </package>
