@@ -35,7 +35,7 @@ jobs:
     needs: calculate-version
     env:
       SEMVER: ${{ needs.calculate-version.outputs.semVer }}
-      ZipName: NFive.SDK.Core-${{ needs.calculate-version.outputs.semVer }}.zip
+      ZipName: NFive.SDK.Client-${{ needs.calculate-version.outputs.semVer }}.zip
 
     steps:
       - uses: actions/checkout@v2.4.2
@@ -47,10 +47,10 @@ jobs:
         uses: NuGet/setup-nuget@v1.0.6
 
       - name: Restore dependencies
-        run: nuget restore NFive.SDK.Core.sln
+        run: nuget restore NFive.SDK.Client.sln
 
       - name: Build the solution
-        run: msbuild NFive.SDK.Core.sln /p:Configuration=Release /p:Outdir=Build
+        run: msbuild NFive.SDK.Client.sln /p:Configuration=Release /p:Outdir=Build
 
       - uses: vimtor/action-zip@v1
         with:
@@ -82,7 +82,7 @@ jobs:
           asset_content_type: application/zip
       
       - name: Pack
-        run: dotnet pack NFive.SDK.Core.csproj -p:PackageVersion=${{ env.SEMVER }} --configuration Release
+        run: dotnet pack NFive.SDK.Client.csproj -p:PackageVersion=${{ env.SEMVER }} --configuration Release
       
       # Push package to nuget.org
       - name: Push nuget package

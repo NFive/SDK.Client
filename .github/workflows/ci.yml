@@ -50,13 +50,13 @@ jobs:
         uses: NuGet/setup-nuget@v1.0.6
 
       - name: Restore dependencies
-        run: nuget restore NFive.SDK.Core.sln
+        run: nuget restore NFive.SDK.Client.sln
 
       - name: Build the solution
-        run: msbuild NFive.SDK.Core.sln /p:Configuration=Release /p:Outdir=Build
+        run: msbuild NFive.SDK.Client.sln /p:Configuration=Release /p:Outdir=Build
 
       - name: Attach Zip as build artifact
         uses: actions/upload-artifact@v3.1.0
         with:
-          name: NFive.SDK.Core-${{ env.SEMVER }}
+          name: NFive.SDK.Client-${{ env.SEMVER }}
           path: Build
