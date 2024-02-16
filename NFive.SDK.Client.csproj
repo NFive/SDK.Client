@@ -30,7 +30,6 @@
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
-  </PropertyGroup>
 
   <ItemGroup>
     <None Update="README.md">
