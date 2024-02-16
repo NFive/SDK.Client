@@ -4,7 +4,6 @@
     <TargetFramework>net471</TargetFramework>
     <RootNamespace>NFive.SDK.Client</RootNamespace>
     <AssemblyName>NFive.SDK.Client.net</AssemblyName>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 
     <PackageId>NFive.SDK.Client</PackageId>
     <Authors>NFive</Authors>
@@ -12,15 +11,37 @@
     <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
     <Tags>nfive fivem gtav</Tags>
     <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
-    <ProjectUrl>https://github.com/NFive/SDK.Client</ProjectUrl>
     <RepositoryUrl>https://github.com/NFive/SDK.Client</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <Title>NFive.SDK.Client</Title>
+    <PackageProjectUrl>https://github.com/NFive</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageTags>nfive fivem gtav</PackageTags>
+    <Version>0.1.4</Version>
     <Description>NFive Client SDK for plugins</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Copyright>Copyright © NFive 2018-2024</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CitizenFX.Core.Client" Version="1.0.5886" />
-    <PackageReference Include="NFive.SDK.Core" Version="0.1.0-tags-0-0-1-beta.1" />
+    <PackageReference Include="NFive.SDK.Core" Version="0.1.4" />
     <PackageReference Include="JetBrains.Annotations" Version="2022.1.0" />
     <PackageReference Include="NGettext" Version="0.6.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" ExcludeAssets="Compile" GeneratePathProperty="true" />
